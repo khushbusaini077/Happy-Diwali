@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#170b2b">
+  <title>Happy Diwali ✨</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <section class="cover-screen" id="coverScreen">
+    <div class="cover-glow"></div>
+    <div class="cover-content">
+      <p class="cover-kicker">A FESTIVAL OF LIGHTS</p>
+      <div class="cover-diya" aria-hidden="true">🪔</div>
+      <h1 class="cover-title">Happy <span>Diwali</span></h1>
+      <p class="cover-subtitle">May your world glow with joy, peace and prosperity.</p>
+      <button class="open-button" id="openGreeting" type="button">
+        Open Your Greeting <span aria-hidden="true">✦</span>
+      </button>
+      <p class="cover-hint">A little surprise is waiting for you</p>
+    </div>
+    <div class="cover-bottom">LIGHT • LOVE • HAPPINESS</div>
+  </section>
+
+  <main class="page greeting-page" id="greetingPage" hidden>
+    <nav class="topbar">
+      <span class="brand">✦ FESTIVE GREETINGS</span>
+      <span class="year">A little light, a lot of love</span>
+    </nav>
+
+    <section class="greeting-card">
+      <div class="spark spark-one">✧</div>
+      <div class="spark spark-two">✦</div>
+      <div class="spark spark-three">✧</div>
+
+      <div class="copy">
+        <p class="eyebrow">LIGHT • LOVE • HAPPINESS</p>
+        <h1>Happy<br><span>Diwali</span></h1>
+        <div class="ornament"><i></i> ✦ <i></i></div>
+        <p class="message">
+          May your days shine with happiness,<br>
+          your home glow with warmth,<br>
+          and your life sparkle with endless possibilities.
+        </p>
+        <p class="wish">Wishing you and your family a beautiful Diwali!</p>
+        <div class="signature">With love <span>♥</span></div>
+      </div>
+
+      <div class="portrait-wrap">
+        <div class="portrait-halo"></div>
+        <div class="portrait-frame">
+          <img src="my-photo.png" alt="My Diwali greeting photo">
+        </div>
+        <span class="photo-caption">A festive smile, sent with love</span>
+      </div>
+
+      <div class="diya-row" aria-hidden="true">
+        <div class="diya"><span class="flame"></span><span class="bowl"></span></div>
+        <div class="diya"><span class="flame"></span><span class="bowl"></span></div>
+        <div class="diya"><span class="flame"></span><span class="bowl"></span></div>
+      </div>
+    </section>
+
+    <footer>May the festival of lights fill every corner of your world with joy ✨</footer>
+  </main>
+
+  <script>
+    const coverScreen = document.getElementById("coverScreen");
+    const greetingPage = document.getElementById("greetingPage");
+    document.getElementById("openGreeting").addEventListener("click", () => {
+      coverScreen.classList.add("cover-exit");
+      window.setTimeout(() => {
+        coverScreen.hidden = true;
+        greetingPage.hidden = false;
+        greetingPage.classList.add("page-enter");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 450);
+    });
+
+    // Small, lightweight festive sparkle effect.
+    const symbols = ["✦", "✧", "·"];
+    for (let i = 0; i < 24; i++) {
+      const star = document.createElement("span");
+      star.className = "floating-star";
+      star.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+      star.style.left = Math.random() * 100 + "vw";
+      star.style.animationDuration = (7 + Math.random() * 9) + "s";
+      star.style.animationDelay = (-Math.random() * 12) + "s";
+      star.style.fontSize = (8 + Math.random() * 13) + "px";
+      document.body.appendChild(star);
+    }
+  </script>
+</body>
+</html>
